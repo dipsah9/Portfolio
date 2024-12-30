@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="home-container">
+  <section class="hero">
+    <!-- Profile Picture -->
+    <div class="profile-picture-container">
+      <img src="{{ url_for('static', filename='images/image.jpeg') }}" alt="Dipendra Sah" class="profile-picture">
+    </div>
+
+    <!-- Hero Text -->
+    <h1 class="hero-title">Hi, I'm Dipendra Sah</h1>
+    <p class="hero-description">
+      Aspiring Computer Science student passionate about 
+      <span class="highlight">IoT</span>, 
+      <span class="highlight">Cloud Computing</span>, and 
+      <span class="highlight">Embedded Systems</span>.
+    </p>
+
+    <!-- Call-to-Action Buttons -->
+    <div class="hero-links">
+      <a href="{{ url_for('about') }}" class="button">About Me</a>
+      <a href="{{ url_for('projects') }}" class="button">My Projects</a>
+      <a href="{{ url_for('contact') }}" class="button">Contact Me</a>
+    </div>
+  </section>
+</div>
+{% endblock %}

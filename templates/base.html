@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Portfolio{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('about') }}">About Me</a></li>
+      <li><a href="{{ url_for('projects') }}">Projects</a></li>
+      <li><a href="{{ url_for('blog') }}">Blogs</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact Me</a></li>
+      
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="content">
+    {% block content %}{% endblock %}
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2024 Dipendra Sah. Built with ❤️ using Flask.</p>
+    <a href="https://github.com/dipsah9" target="_blank">Visit My GitHub</a>
+  </footer>
+</body>
+</html>

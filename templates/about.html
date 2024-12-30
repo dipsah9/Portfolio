@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+  <!-- Header -->
+  <header class="bg-gray-800 p-4 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-blue-400">Dipendra Sah</h1>
+      <nav class="space-x-4">
+        <a href="{{ url_for('home') }}" class="text-gray-300 hover:text-blue-400">Home</a>
+        <a href="{{ url_for('projects') }}" class="text-gray-300 hover:text-blue-400">Projects</a>
+        <a href="{{ url_for('blog') }}" class="text-gray-300 hover:text-blue-400">Blog</a>
+        <a href="{{ url_for('contact') }}" class="text-gray-300 hover:text-blue-400">Contact Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section class="container mx-auto px-4 py-16">
+    <div class="text-center">
+      <h2 class="text-4xl font-bold text-blue-400 mb-6">About Me</h2>
+      <p class="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed">
+        Hi, I'm <span class="text-white font-semibold">Dipendra Sah</span>, an aspiring Computer Science student with a deep interest in 
+        <span class="text-blue-400 font-medium">IoT</span>, 
+        <span class="text-blue-400 font-medium">Cloud Computing</span>, and 
+        <span class="text-blue-400 font-medium">Embedded Systems</span>. 
+        I love solving complex problems, developing creative solutions, and exploring the intersection of hardware and software technologies.
+      </p>
+    </div>
+
+    <!-- Skills & Interests Section -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+      <!-- Skills Section -->
+      <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+        <h3 class="text-2xl font-bold text-white mb-4">Technical Skills</h3>
+        <ul class="list-disc list-inside text-gray-300 space-y-2">
+          <li>C Programming</li>
+          <li>Java (Streams, Networking, Collections)</li>
+          <li>Python (Flask, IoT scripting)</li>
+          <li>IoT Systems (Raspberry Pi, Arduino)</li>
+          <li>Cloud Computing (AWS, Docker, Deployment)</li>
+          <li>Embedded Systems Development</li>
+          <li>Version Control (Git, GitHub)</li>
+        </ul>
+      </div>
+      
+      <!-- Interests Section -->
+      <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+        <h3 class="text-2xl font-bold text-white mb-4">Personal Interests</h3>
+        <p class="text-gray-300">
+          I’m passionate about the practical applications of IoT, particularly in smart home automation and real-world device integration. 
+          I also enjoy exploring cloud platforms for scalable deployments and contributing to open-source projects to give back to the community.
+        </p>
+      </div>
+    </div>
+
+    <!-- Achievements Section -->
+    <div class="bg-gray-800 p-6 mt-12 rounded-lg shadow-md">
+      <h3 class="text-2xl font-bold text-white mb-4">Achievements</h3>
+      <ul class="list-disc list-inside text-gray-300 space-y-2">
+        <li>Built a modular shell in C with personalized commands for process and file management.</li>
+        <li>Developed an IoT project using Raspberry Pi for interactive LED designs.</li>
+        <li>Deployed a Large Language Model (LLM) application using AWS CLI tools.</li>
+        <li>Contributed to open-source projects related to embedded systems.</li>
+      </ul>
+    </div>
+
+    <!-- Education Section -->
+    <div class="bg-gray-800 p-6 mt-12 rounded-lg shadow-md">
+      <h3 class="text-2xl font-bold text-white mb-4">Education</h3>
+      <p class="text-gray-300">
+        Currently pursuing a degree in <span class="text-blue-400">Computer Science</span>. 
+        My coursework includes subjects such as Operating Systems, Databases, Digital Circuits, and Software Engineering.
+      </p>
+    </div>
+
+    <!-- Goals Section -->
+    <div class="bg-gray-800 p-6 mt-12 rounded-lg shadow-md">
+      <h3 class="text-2xl font-bold text-white mb-4">Future Goals</h3>
+      <p class="text-gray-300">
+        My ultimate goal is to become a leader in the field of Cloud Computing and IoT, 
+        leveraging my skills to build solutions that positively impact people's lives. 
+        I am also focused on expanding my knowledge in AI and Machine Learning to develop innovative projects.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-center py-6">
+    <p class="text-gray-400 text-sm">
+      © 2024 Dipendra Sah. Built with ❤️ using HTML & Tailwind CSS.
+    </p>
+    <a
+      href="https://github.com/dipsah9"
+      target="_blank"
+      class="text-blue-400 hover:underline"
+    >
+      Visit My GitHub Profile
+    </a>
+  </footer>
+</body>
+</html>
