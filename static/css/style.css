@@ -141,3 +141,107 @@
     }
   }
   
+
+
+
+
+
+
+  /* Base Styles */
+body {
+    background-color: #1a1a2e; /* Dark Background */
+    color: #ffffff; /* White Text */
+    font-family: 'Inter', sans-serif; /* Clean Font */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Section Headers */
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #00aaff; /* Bright Blue */
+  }
+  
+  /* Text Styling */
+  p {
+    color: #b0b0b0; /* Muted Gray for Paragraphs */
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  a {
+    color: #00aaff; /* Bright Blue Links */
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+    color: #1e90ff; /* Lighter Blue on Hover */
+  }
+  
+  /* Card Styles */
+  .bg-gray-800 {
+    background-color: #2a2a3b; /* Slightly Lighter Dark Gray */
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle Shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .bg-gray-800:hover {
+    transform: translateY(-10px); /* Hover Effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Elevated Shadow */
+  }
+  
+  .list-disc li {
+    margin-bottom: 0.5rem;
+    color: #d1d5db; /* Light Gray for List Items */
+  }
+  
+  /* Grid Layout */
+  .grid {
+    display: grid;
+    gap: 20px;
+  }
+  
+  .grid-cols-1 {
+    grid-template-columns: 1fr;
+  }
+  
+  .md\\:grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Footer Styles */
+  footer {
+    background-color: #111827; /* Deep Dark Background */
+    color: #9ca3af; /* Muted Gray for Footer Text */
+    padding: 20px;
+    text-align: center;
+  }
+  
+  footer a {
+    color: #00aaff;
+    font-weight: bold;
+  }
+  
+  footer a:hover {
+    color: #1e90ff;
+    text-decoration: underline;
+  }
+  
