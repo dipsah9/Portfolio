@@ -1,20 +1,32 @@
-<<<<<<< HEAD
-name: Fly Deploy
+name: Deploy Jekyll site to GitHub Pages
+
 on:
   push:
     branches:
       - main
-=======
->>>>>>> 527904d (fix: YAML conflicts resolved)
+
 jobs:
-  deploy:
-    name: Deploy app
+  build:
     runs-on: ubuntu-latest
-    concurrency: deploy-group 
     steps:
-      - uses: actions/checkout@v4
-      - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --remote-only
-        env:
-          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+          bundler-cache: true
+
+      - name: Install dependencies
+        run: bundle install
+
+      - name: Build the site
+        run: bundle exec jekyll build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
 
