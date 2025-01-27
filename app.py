@@ -22,6 +22,11 @@ def contact():
 def projects():
     return render_template("projects.html")
 
+@app.route("/vlog_4")
+def vlog_4():
+    return render_template("paging.html")
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
+
 

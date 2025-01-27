@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio with Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Floating chat button */
+        #chatButton {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Chat pop-up container */
+        #chatPopup {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 300px;
+            max-height: 400px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            display: none;
+            flex-direction: column;
+        }
+
+        #chatHeader {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #chatHeader span {
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #messages {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+            background: #f5f5f5;
+        }
+
+        #messageInputContainer {
+            display: flex;
+            padding: 10px;
+            background-color: #fff;
+            border-top: 1px solid #ccc;
+        }
+
+        #messageInput {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        #sendButton {
+            margin-left: 10px;
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #sendButton:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to My Portfolio</h1>
+    <p>Explore my projects and features!</p>
+
+    <!-- Floating chat button -->
+    <button id="chatButton">💬</button>
+
+    <!-- Chat pop-up -->
+    <div id="chatPopup">
+        <div id="chatHeader">
+            <span>Chat</span>
+            <span id="closePopup">&times;</span>
+        </div>
+        <div id="messages"></div>
+        <div id="messageInputContainer">
+            <input type="text" id="messageInput" placeholder="Type your message here">
+            <button id="sendButton">Send</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"></script>
+    <script>
+        const socket = io();
+
+        // Show/hide chat pop-up
+        const chatButton = document.getElementById('chatButton');
+        const chatPopup = document.getElementById('chatPopup');
+        const closePopup = document.getElementById('closePopup');
+
+        chatButton.addEventListener('click', () => {
+            chatPopup.style.display = 'flex';
+        });
+
+        closePopup.addEventListener('click', () => {
+            chatPopup.style.display = 'none';
+        });
+
+        // Display messages
+        const messagesDiv = document.getElementById('messages');
+        socket.on('message', (data) => {
+            const message = document.createElement('div');
+            message.textContent = data;
+            messagesDiv.appendChild(message);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight; // Auto-scroll to the bottom
+        });
+
+        // Send messages
+        const sendButton = document.getElementById('sendButton');
+        const messageInput = document.getElementById('messageInput');
+        sendButton.addEventListener('click', () => {
+            const message = messageInput.value;
+            if (message.trim()) {
+                socket.send(message);
+                messageInput.value = '';
+            }
+        });
+    </script>
+</body>
+</html>

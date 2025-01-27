@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}Two-Level Paging - Day 1{% endblock %}
+{% block content %}
+
+<header class="bg-gradient-to-r from-blue-500 to-purple-600 py-16 text-center">
+  <h1 class="text-4xl md:text-6xl font-bold">Day 1: Understanding Two-Level Paging</h1>
+  <p class="mt-4 text-lg text-gray-100 max-w-2xl mx-auto">
+    A deep dive into memory management and how a 32-bit OS splits virtual addresses into
+    a first-level index, a second-level index, and an offset.
+  </p>
+</header>
+
+<main class="container mx-auto px-4 py-16 text-white">
+  <h2 class="text-2xl font-bold mb-6">Why Two-Level Paging?</h2>
+  <!-- Scenario Section -->
+<section class="mb-8">
+  <h2 class="text-2xl font-bold mb-4">Scenario for Simulation</h2>
+  <p class="mb-4">
+    We are simulating a memory management scenario in a 32-bit system that uses two-level paging.
+    This setup will help illustrate how logical (virtual) addresses map to physical addresses.
+  </p>
+</section>
+
+<!-- 32-Bit Virtual Address Section -->
+<section class="mb-8">
+  <h3 class="text-xl font-semibold mb-2">32-Bit Virtual Address</h3>
+  <p class="mb-2">A 32-bit virtual address is divided into three parts:</p>
+  <ul class="list-disc list-inside ml-5 mb-4">
+    <li><strong>10 bits</strong> for the first-level page table index</li>
+    <li><strong>10 bits</strong> for the second-level page table index</li>
+    <li><strong>12 bits</strong> for the offset within the page</li>
+  </ul>
+  <p class="mb-4">
+    This means each page is <strong>4 KB</strong> in size (2<sup>12</sup> bytes). Since we need 
+    10 bits for each level of indexing, each level has <strong>1024 entries</strong> 
+    (2<sup>10</sup> entries).
+  </p>
+</section>
+
+<!-- Physical Memory Section -->
+<section class="mb-8">
+  <h3 class="text-xl font-semibold mb-2">Physical Memory</h3>
+  <p class="mb-4">
+    The system’s physical memory is represented as a collection of <strong>frames</strong>, 
+    each also being <strong>4 KB</strong> in size. 
+  </p>
+</section>
+
+<!-- Objective Section -->
+<section class="mb-8">
+  <h3 class="text-xl font-semibold mb-2">Objective</h3>
+  <ul class="list-disc list-inside ml-5">
+    <li>Translate a virtual address to its corresponding physical address.</li>
+    <li>Simulate two processes sharing one physical frame:
+      <ul class="list-disc list-inside ml-6">
+        <li>Process A: Read-only access</li>
+        <li>Process B: Read-write access</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+  <!-- Code snippet, diagrams, etc. -->
+  <h3 class="text-xl font-semibold mt-8 mb-4">Code Simulation</h3>
+  <p class="mb-4">
+    In my <a href="https://github.com/dipsah9/pipeAndFilter/blob/main/pagingSimulation.c" class="text-blue-400 hover:underline">GitHub repo</a>, 
+    I’ve included a simple C simulation demonstrating how address translation happens with a two-level page table. 
+    Feel free to check it out and experiment!
+  </p>
+
+  <!-- More explanation, images, diagrams, etc. -->
+
+</main>
+
+{% endblock %}
