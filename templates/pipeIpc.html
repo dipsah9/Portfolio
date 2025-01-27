@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}Pipe and Process Communication - Day 1{% endblock %}
+{% block content %}
+
+<header class="bg-gradient-to-r from-green-500 to-blue-600 py-16 text-center">
+ 
+  <p class="mt-4 text-lg text-gray-100 max-w-2xl mx-auto">
+    A journey into the world of interprocess communication using pipes in Linux, including examples and concepts to understand how processes interact.
+  </p>
+</header>
+
+<main class="container mx-auto px-4 py-16 text-white">
+
+<!-- Introduction Section -->
+<section class="mb-8">
+  <h2 class="text-2xl font-bold mb-4">Introduction</h2>
+  <p class="mb-4">
+    Today, we explored the concept of pipes and how they facilitate communication between parent and child processes. Pipes are one of the simplest forms of interprocess communication (IPC) in Unix-like systems. Using examples, we delved into creating pipes, writing to them, redirecting input/output, and more.
+  </p>
+</section>
+
+<!-- What is a Pipe? -->
+<section class="mb-8">
+  <h3 class="text-xl font-semibold mb-2">What is a Pipe?</h3>
+  <p class="mb-4">
+    A pipe is a unidirectional communication channel used for sending data from one process to another. It consists of two ends:
+  </p>
+  <ul class="list-disc list-inside ml-5 mb-4">
+    <li><strong>Write End:</strong> Used by one process to send data.</li>
+    <li><strong>Read End:</strong> Used by another process to receive the data.</li>
+  </ul>
+</section>
+
+<!-- Key Concepts Section -->
+<section class="mb-8">
+  <h3 class="text-xl font-semibold mb-2">Key Concepts Explored</h3>
+  <ul class="list-disc list-inside ml-5">
+    <li>Creating a pipe using <code>pipe()</code>.</li>
+    <li>Using <code>fork()</code> to create a parent-child process pair.</li>
+    <li>Redirecting file descriptors with <code>dup2()</code>.</li>
+    <li>Executing external commands with <code>exec()</code>.</li>
+    <li>Chaining multiple processes using pipes.</li>
+  </ul>
+</section>
+
+<!-- Examples Section -->
+<section class="mb-8">
+  <h3 class="text-xl font-semibold mb-2">Examples Implemented</h3>
+  <ul class="list-disc list-inside ml-5 mb-4">
+    <li>Basic pipe communication between parent and child processes.</li>
+    <li>Redirecting the pipe's read end to <code>stdin</code> using <code>dup2()</code>.</li>
+    <li>Replacing the child process with an external command like <code>wc -l</code> using <code>exec()</code>.</li>
+    <li>Chaining multiple processes, such as <code>echo "data" | grep "keyword" | wc -l</code>.</li>
+  </ul>
+</section>
+
+<!-- Code Example Section -->
+<section class="mb-8">
+  <h3 class="text-xl font-semibold mb-2">Code Examples</h3>
+  <p class="mb-4">
+    The complete code examples for today’s exercises can be found in my <a href="https://github.com/dipsah9/pipeAndFilter" class="text-blue-400 hover:underline">GitHub repo</a>. These include:
+  </p>
+  <ul class="list-disc list-inside ml-5 mb-4">
+    <li>Basic parent-child communication via pipes.</li>
+    <li>Redirection of input/output with <code>dup2()</code>.</li>
+    <li>Chained processes for advanced pipelines.</li>
+  </ul>
+</section>
+
+<!-- Reflection Section -->
+<section class="mb-8">
+  <h3 class="text-xl font-semibold mb-2">Reflection</h3>
+  <p class="mb-4">
+    Today’s exploration of pipes and process communication deepened our understanding of how data flows between processes in Unix systems. By building from basic examples to more complex pipelines, we unlocked the power of IPC and laid the foundation for understanding more advanced concepts in systems programming.
+  </p>
+</section>
+
+</main>
+
+{% endblock %}

@@ -26,6 +26,10 @@ def projects():
 def vlog_4():
     return render_template("paging.html")
 
+@app.route("/vlog_5")
+def vlog_5():
+    return render_template("pipeIpc.html")
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
 
